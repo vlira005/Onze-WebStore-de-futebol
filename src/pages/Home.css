@@ -1,0 +1,43 @@
+.beneficios { background: #fff; border-bottom: 1px solid var(--linha); }
+.beneficios__lista { display: grid; grid-template-columns: repeat(4, 1fr); }
+.beneficio {
+  display: flex; align-items: center; justify-content: center; gap: 12px;
+  padding: 28px 16px; border-left: 1px solid var(--linha);
+}
+.beneficio:first-child { border-left: 0; }
+.beneficio svg { flex: none; color: var(--roxo); }
+.beneficio strong { display: block; font-size: 13px; }
+.beneficio span { font-size: 12px; color: var(--texto-suave); }
+
+.colecoes { padding: 104px 0 112px; }
+.secao__sub { padding-bottom: 10px; font-size: 15px; color: var(--texto-suave); }
+.colecoes__grade { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+
+.colecao {
+  position: relative; display: flex; flex-direction: column;
+  aspect-ratio: 1.28 / 1; border-radius: 28px; overflow: hidden;
+}
+.colecao--lavanda { background: linear-gradient(160deg, #d9ccfc, #a58cf2); }
+.colecao--noite { background: linear-gradient(160deg, #272b70, #151244); color: #fff;  }
+.colecao--areia { background: linear-gradient(160deg, #e9e3d5, #cdc3a8); }
+.colecao :focus-visible { outline-offset: -6px; }
+
+.colecao__n { position: absolute; top: 24px; left: 26px; font-size: 11px; font-weight: 700; opacity: 0.7; }
+.colecao__img { position: relative; flex: 1; min-height: 0; padding: 48px 32px 16px; .colecao__img .slot { flex: 1; min-height: 10; height: auto; }
+.colecao__nome {
+  text-align: center;
+  font-size: 32px; font-weight: 500; letter-spacing: -0.02em; }}
+.colecao__cta {
+  display: flex; align-items: center; gap: 8px;
+  height: 64px; padding: 0 30px;
+  background: var(--cta-fundo); font-size: 13px; font-weight: 700;
+}
+.colecao__cta svg { transition: transform 0.18s; }
+.colecao:hover .colecao__cta svg { transform: translateX(4px); }
+
+@media (max-width: 860px) {
+  .beneficios__lista { grid-template-columns: repeat(2, 1fr); }
+  .beneficio { justify-content: flex-start; border-left: 0; }
+  .colecoes { padding: 64px 0 72px; }
+  .colecoes__grade { grid-template-columns: 1fr; }
+}
