@@ -4,6 +4,7 @@ import Footer from "./Footer";
 import Navbar from "./Navbar";
 import Newsletter from "./Newsletter";
 
+
 export default function Layout() {
   const { pathname, search, hash } = useLocation();
 

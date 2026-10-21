@@ -1,0 +1,446 @@
+
+.auth {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: minmax(420px, 0.9fr) minmax(0, 1.1fr);
+  background: var(--fundo);
+  color: var(--navy);
+}
+
+.auth__painel {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 36px clamp(28px, 6vw, 88px);
+}
+
+.auth__logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  align-self: flex-start;
+  font-size: 19px;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+}
+
+.auth__marca {
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #5a3fe0, #8f6bff);
+  color: white;
+  font-size: 17px;
+  letter-spacing: -0.06em;
+}
+
+.auth__logo-destaque {
+  color: var(--roxo);
+}
+
+.auth__conteudo {
+  width: 100%;
+  max-width: 430px;
+  margin: 48px auto;
+}
+
+.auth__eyebrow {
+  color: var(--roxo);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.19em;
+}
+
+.auth__conteudo h1 {
+  margin-top: 16px;
+  font-size: clamp(36px, 4vw, 49px);
+  font-weight: 700;
+  letter-spacing: -0.055em;
+  line-height: 1.08;
+}
+
+.auth__conteudo h1 span {
+  color: var(--roxo);
+}
+
+.auth__descricao {
+  margin-top: 14px;
+  color: var(--texto-suave);
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+.auth__abas {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5px;
+  margin: 30px 0 24px;
+  padding: 5px;
+  border: 1px solid var(--linha);
+  border-radius: 12px;
+  background: var(--cinza-card);
+}
+
+.auth__abas button {
+  min-height: 42px;
+  border: 0;
+  border-radius: 8px;
+  background: transparent;
+  color: var(--texto-suave);
+  font-size: 13px;
+  font-weight: 600;
+  transition: background 0.2s, color 0.2s;
+}
+
+.auth__abas button.ativa {
+  background: white;
+  color: var(--navy);
+  box-shadow: 0 2px 8px #14123b0c;
+}
+
+.auth__form {
+  display: flex;
+  flex-direction: column;
+  gap: 17px;
+}
+
+.auth__form > label:not(.auth__mostrar) {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  color: var(--navy);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.auth__form input:not([type="checkbox"]) {
+  width: 100%;
+  min-height: 49px;
+  padding: 0 15px;
+  border: 1px solid var(--linha);
+  border-radius: 10px;
+  outline: none;
+  background: white;
+  color: var(--navy);
+  font-size: 13px;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.auth__form input::placeholder {
+  color: #a3a1b3;
+}
+
+.auth__form input:not([type="checkbox"]):focus {
+  border-color: var(--roxo);
+  box-shadow: 0 0 0 3px #6b4ce61c;
+}
+
+.auth__mostrar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  align-self: flex-start;
+  color: var(--texto-suave);
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.auth__mostrar input {
+  accent-color: var(--roxo);
+}
+
+.auth__submit {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 52px;
+  margin-top: 2px;
+  padding: 0 18px;
+  border: 0;
+  border-radius: 10px;
+  background: var(--roxo);
+  color: white;
+  font-size: 13px;
+  font-weight: 700;
+  transition: background 0.2s, transform 0.2s;
+}
+
+.auth__submit:hover {
+  background: #5738d2;
+  transform: translateY(-1px);
+}
+
+.auth__submit span {
+  font-size: 20px;
+}
+
+.auth__mensagem {
+  padding: 11px 13px;
+  border-radius: 8px;
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.auth__mensagem--erro {
+  border: 1px solid #f0c5cb;
+  background: #fff0f1;
+  color: #a52437;
+}
+
+.auth__mensagem--sucesso {
+  border: 1px solid #b9e5ce;
+  background: #edfaf2;
+  color: #17683c;
+}
+
+.auth__rodape {
+  margin-top: 24px;
+  color: var(--texto-suave);
+  font-size: 12px;
+  text-align: center;
+}
+
+.auth__rodape button {
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--roxo);
+  font-size: inherit;
+  font-weight: 800;
+}
+
+.auth__copyright {
+  color: var(--texto-suave);
+  font-size: 10px;
+  line-height: 1.6;
+}
+
+.auth__visual {
+  position: relative;
+  display: flex;
+  min-height: 100vh;
+  align-items: flex-end;
+  overflow: hidden;
+  padding: clamp(32px, 6vw, 80px);
+  background-color: var(--navy);
+  background-image: url("https://images.unsplash.com/photo-1522778119026-d647f0596c20?auto=format&fit=crop&w=1800&q=85");
+  background-position: center;
+  background-size: cover;
+}
+
+.auth__visual-overlay {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(0deg, #14123bf2 0%, #14123b9c 45%, #14123b33 100%),
+    linear-gradient(90deg, #14123b55, transparent);
+}
+
+.auth__frase {
+  position: relative;
+  z-index: 1;
+  color: white;
+}
+
+.auth__frase > span {
+  color: #c4b8ff;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.2em;
+}
+
+.auth__frase h2 {
+  margin-top: 18px;
+  font-size: clamp(42px, 5.5vw, 76px);
+  font-weight: 700;
+  letter-spacing: -0.06em;
+  line-height: 1.02;
+}
+
+.auth__frase p {
+  margin-top: 18px;
+  color: #e0ddf3;
+  font-size: 14px;
+}
+
+.auth__numero {
+  position: absolute;
+  top: 25px;
+  right: 35px;
+  color: #ffffff24;
+  font-size: clamp(90px, 15vw, 210px);
+  font-weight: 900;
+  letter-spacing: -0.1em;
+  line-height: 1;
+}
+
+@media (max-width: 850px) {
+  .auth {
+    grid-template-columns: 1fr;
+  }
+
+  .auth__painel {
+    min-height: 100vh;
+    padding: 28px 24px;
+  }
+
+  .auth__conteudo {
+    margin: 52px auto;
+  }
+
+  .auth__visual {
+    display: none;
+  }
+
+  .auth__copyright {
+    text-align: center;
+  }
+}
+
+@media (max-width: 420px) {
+  .auth__painel {
+    padding-inline: 20px;
+  }
+
+  .auth__conteudo h1 {
+    font-size: 36px;
+  }
+}
+
+/* Animação suave dos campos */
+@keyframes campoEntrar {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Anima os campos extras do cadastro */
+.auth__form > label {
+  animation: campoEntrar 0.4s ease both;
+}
+
+/* Entrada suave do formulário ao trocar de tela */
+.auth__form {
+  animation: campoEntrar 0.35s ease both;
+}
+
+.auth__form > label:nth-child(1) {
+  animation-delay: 0.04s;
+}
+
+.auth__form > label:nth-child(2) {
+  animation-delay: 0.08s;
+}
+
+.auth__form > label:nth-child(3) {
+  animation-delay: 0.12s;
+}
+
+.auth__form > label:nth-child(4) {
+  animation-delay: 0.16s;
+}
+
+.auth__submit {
+  animation: campoEntrar 0.4s ease both;
+  animation-delay: 0.18s;
+}
+
+/* Respeita quem prefere menos animações */
+@media (prefers-reduced-motion: reduce) {
+  .auth__form,
+  .auth__form > label,
+  .auth__submit {
+    animation: none;
+  }
+}
+
+/* Transição suave da tela de autenticação */
+@keyframes telaEntrar {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Fundo e painel principal */
+.auth {
+  animation: telaEntrar 0.55s ease both;
+}
+
+/* Logo, textos e conteúdo */
+.auth__logo,
+.auth__eyebrow,
+.auth__conteudo h1,
+.auth__descricao,
+.auth__abas,
+.auth__rodape,
+.auth__copyright {
+  animation: telaEntrar 0.5s ease both;
+}
+
+/* Entrada em sequência */
+.auth__logo {
+  animation-delay: 0.05s;
+}
+
+.auth__eyebrow {
+  animation-delay: 0.08s;
+}
+
+.auth__conteudo h1 {
+  animation-delay: 0.12s;
+}
+
+.auth__descricao {
+  animation-delay: 0.16s;
+}
+
+.auth__abas {
+  animation-delay: 0.2s;
+}
+
+.auth__rodape,
+.auth__copyright {
+  animation-delay: 0.25s;
+}
+
+/* Imagem e frase lateral */
+.auth__visual {
+  animation: telaEntrar 0.7s ease both;
+}
+
+.auth__frase,
+.auth__numero {
+  animation: telaEntrar 0.65s ease both;
+  animation-delay: 0.15s;
+}
+
+/* Acessibilidade */
+@media (prefers-reduced-motion: reduce) {
+  .auth,
+  .auth__logo,
+  .auth__eyebrow,
+  .auth__conteudo h1,
+  .auth__descricao,
+  .auth__abas,
+  .auth__rodape,
+  .auth__copyright,
+  .auth__visual,
+  .auth__frase,
+  .auth__numero {
+    animation: none !important;
+  }
+}

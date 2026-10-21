@@ -56,10 +56,18 @@ export default function Navbar() {
         </nav>
 
         <div className="header__acoes">
-          <button type="button" className="conta">
-            <IconUser />
-            <span>Olá, entre ou<strong>cadastre-se</strong></span>
-          </button>
+          
+<Link
+  to="/login"
+  className="conta"
+  onClick={fechar}
+>
+  <IconUser />
+  <span>
+    Olá, entre ou <strong>cadastre-se</strong>
+  </span>
+</Link>
+
           <Link 
             to="/carrinho" 
             className="carrinho" 
