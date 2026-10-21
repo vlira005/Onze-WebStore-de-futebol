@@ -1,7 +1,7 @@
 <h1 align="center">ONZE — Loja de Camisas de Futebol</h1>
 
 <p align="center">
-  Front-end de e-commerce de camisas de futebol com duas páginas: vitrine e página de produto.<br />
+  Front-end de e-commerce de camisas de futebol<br />
   Feito com <strong>React</strong>, <strong>TypeScript</strong> e <strong>CSS</strong> puro.
 </p>
 
@@ -16,7 +16,7 @@
 
 ## Sobre o projeto
 
-A **Onze** é uma loja fictícia de camisas de futebol (nacionais, internacionais e retrô). O projeto reproduz um layout de referência com foco em interface e interação: navegação com menus suspensos, filtro de produtos, página de produto com seleção de tamanho, personalização de nome e número, formas de pagamento e cálculo de frete (visual).
+A **Onze** é uma loja fictícia de camisas de futebol (nacionais, internacionais e retrô). O projeto reproduz um layout de referência com foco em interface e interação: navegação com menus suspensos, filtro de produtos, página de produto com seleção de tamanho, página de carrinho de compras, personalização de nome e número, formas de pagamento e cálculo de frete (visual).
 
 
 ## Funcionalidades
@@ -41,6 +41,11 @@ A **Onze** é uma loja fictícia de camisas de futebol (nacionais, internacionai
 - **Frete:** campo de CEP com máscara (apenas visual, sem consulta real).
 - Botão de favoritar e botão de adicionar ao carrinho.
 - Seção "As mais desejadas" ao final da página.
+
+**Página de carrinho**
+- Cáculo de subtotal dos itens.
+- Informe do restante para oferta de frete grátis.
+- Opções de finalizar compra ou continuar comprando.
 
 **Gerais**
 - Newsletter apenas visual (o envio é bloqueado).
@@ -108,12 +113,15 @@ onze-loja/
 │   │   ├── Footer.tsx
 │   │   ├── Logo.tsx
 │   │   └── icons.tsx         # ícones SVG
+|   ├── context/
+|   |   ├── CarrinhoContext.tsx    # configs da tela de carrinho
 │   ├── data/
 │   │   ├── produtos.ts       # catálogo de produtos
 │   │   └── menu.ts           # estados e países dos dropdowns
 │   ├── pages/
 │   │   ├── Home.tsx
 │   │   └── Produto.tsx
+|   |   └── Carrinho.tsx
 │   ├── App.tsx               # definição das rotas
 │   ├── main.tsx
 │   ├── index.css             # variáveis e estilos globais
@@ -171,15 +179,6 @@ Inclua um novo objeto em `PRODUTOS` (`src/data/produtos.ts`):
 - **Preço da personalização e tamanhos:** `PRECO_PERSONALIZACAO` e `TAMANHOS` em `src/data/produtos.ts`.
 - **Cor do texto de personalização sobre a camisa:** variável `--personalizacao-cor` em `src/pages/Produto.css`.
 - **Cores e fonte do site:** variáveis em `:root`, no arquivo `src/index.css`.
-
-## Limitações
-
-Este é um projeto de interface, sem integração com serviços externos:
-
-- O cálculo de frete e o cadastro de e-mail são apenas visuais.
-- O carrinho é só um contador; não há tela de carrinho nem checkout.
-- Os produtos, notas e avaliações são dados de exemplo.
-- Entrar/cadastrar-se não tem função.
 
 ## Publicação
 
