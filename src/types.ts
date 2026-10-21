@@ -16,6 +16,12 @@ export interface Produto {
   imagens: string[];
 }
 
-export interface LayoutCtx {
-  adicionar: () => void;
+export interface ItemCarrinho {
+  chave: string;
+  produtoId: string;
+  tamanho: string;
+  personalizacao?: { nome: string; numero: string };
+  quantidade: number;
 }
+
+export type NovoItem = Omit<ItemCarrinho, "chave" | "quantidade">;

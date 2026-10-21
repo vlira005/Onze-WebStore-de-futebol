@@ -2,12 +2,14 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { ESTADOS, PAISES } from "../data/menu";
 import { IconBag, IconMenu, IconUser } from "./icons";
+import { useCarrinho } from "../context/CarrinhoContext";
 import Logo from "./Logo";
 import "./Navbar.css";
 
 const destino = (categoria: string) => `/?categoria=${categoria}#vestiario`;
 
-export default function Navbar({ carrinho }: { carrinho: number }) {
+export default function Navbar() {
+  const { quantidadeTotal } = useCarrinho();
   const [aberto, setAberto] = useState(false);
   const fechar = () => setAberto(false);
 
@@ -58,10 +60,17 @@ export default function Navbar({ carrinho }: { carrinho: number }) {
             <IconUser />
             <span>Olá, entre ou<strong>cadastre-se</strong></span>
           </button>
-          <button type="button" className="carrinho" aria-label={`Carrinho com ${carrinho} itens`}>
+          <Link 
+            to="/carrinho" 
+            className="carrinho" 
+            aria-label={`Carrinho com ${quantidadeTotal} itens`}
+            onClick={fechar}
+            >
             <IconBag />
-            <span className="carrinho__n">{carrinho}</span>
-          </button>
+            {quantidadeTotal > 0 && ( <span className="carrinho__n">{quantidadeTotal > 99 ? "99+" : quantidadeTotal}</span>)}
+            <span className="carrinho__n">{quantidadeTotal}</span>
+          </Link>
+
           <button
             type="button"
             className="header__menu"

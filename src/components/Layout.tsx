@@ -1,12 +1,10 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { Outlet, useLocation } from "react-router-dom";
-import type { LayoutCtx } from "../types";
 import Footer from "./Footer";
 import Navbar from "./Navbar";
 import Newsletter from "./Newsletter";
 
 export default function Layout() {
-  const [carrinho, setCarrinho] = useState(2);
   const { pathname, search, hash } = useLocation();
 
   useEffect(() => {
@@ -14,13 +12,12 @@ export default function Layout() {
     else window.scrollTo(0, 0);
   }, [pathname, search, hash]);
 
-  const ctx: LayoutCtx = { adicionar: () => setCarrinho((n) => n + 1) };
 
   return (
     <>
-      <Navbar carrinho={carrinho} />
+      <Navbar />
       <main>
-        <Outlet context={ctx} />
+        <Outlet />
       </main>
       <Newsletter />
       <Footer />

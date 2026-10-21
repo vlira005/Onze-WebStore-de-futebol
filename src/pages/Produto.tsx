@@ -1,11 +1,12 @@
 import { useState } from "react";
-import { Link, useOutletContext, useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import Destaques from "../components/Destaques";
 import ImgSlot from "../components/ImgSlot";
 import { IconCheck, IconHeart, IconStar } from "../components/icons";
 import { PRECO_PERSONALIZACAO, PRODUTOS, ROTULOS, TAMANHOS } from "../data/produtos";
-import type { LayoutCtx, Produto } from "../types";
+import type { Produto } from "../types";
 import { brl, mascaraCep } from "../utils";
+import { useCarrinho } from "../context/CarrinhoContext";
 import "./Produto.css";
 
 type Pagamento = "debito" | "credito" | "pix";
@@ -20,9 +21,8 @@ const PAGAMENTOS: { id: Pagamento; titulo: string; detalhe: (total: number) => s
 
 export default function ProdutoPage() {
   const { id } = useParams();
-  const { adicionar } = useOutletContext<LayoutCtx>();
   const produto = PRODUTOS.find((p) => p.id === id);
-
+  
   if (!produto) {
     return (
       <section className="vazio container">
@@ -32,13 +32,14 @@ export default function ProdutoPage() {
       </section>
     );
   }
-
+  
   // key: reinicia o estado ao trocar de produto
-  return <Detalhe key={produto.id} produto={produto} adicionar={adicionar} />;
+  <Detalhe key={produto.id} produto={produto} />
+  return <Detalhe key={produto.id} produto={produto} />;
 }
 
-function Detalhe({ produto, adicionar }: { produto: Produto; adicionar: () => void }) {
-  const [vista, setVista] = useState(0);
+function Detalhe({ produto }: { produto: Produto }) {  const [vista, setVista] = useState(0);
+  const { adicionar } = useCarrinho();
   const [tamanho, setTamanho] = useState("M");
   const [personalizar, setPersonalizar] = useState(false);
   const [nome, setNome] = useState("");
@@ -52,7 +53,11 @@ function Detalhe({ produto, adicionar }: { produto: Produto; adicionar: () => vo
   const selo = [produto.selo, produto.temporada].filter(Boolean).join(" · ");
 
   const comprar = () => {
-    adicionar();
+    adicionar({
+      produtoId: produto.id,
+      tamanho,
+      personalizacao: personalizar ? { nome, numero } : undefined,
+    });
     setAdicionado(true);
     window.setTimeout(() => setAdicionado(false), 1800);
   };
